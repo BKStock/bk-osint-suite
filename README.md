@@ -326,3 +326,50 @@ holehe -C target@example.com
 - このツールはOSINT（公開情報調査）目的でのみ使用してください
 - 一部のモジュールはパスワードリセットメールを送信する可能性があります
 - 悪用は法律で禁止されています
+
+---
+
+## 📱 電話番号チェック（デバイス判定）
+
+BK OSINT Suite は電話番号からデバイス種別（iPhone/Android）を判定できます。
+
+### 使い方
+
+```bash
+python -m holehe.phone_check +819012345678
+```
+
+### 出力例
+
+```
+==================================================
+  BK OSINT Suite - Phone Check
+  Target: +819012345678
+==================================================
+
+  Device: iPhone / iPad
+
+  [+] imessage    (apple.com) | {'device': 'iPhone/iPad', 'service': 'iMessage'}
+  [+] whatsapp    (whatsapp.com) | {'device': 'iPhone'}
+  [+] telegram    (telegram.org)
+  [+] line        (line.me)
+
+==================================================
+  [+] Registered  [-] Not found  [x] Rate limited
+==================================================
+```
+
+### チェック項目
+
+| モジュール | 判定内容 | 精度 |
+|-----------|---------|------|
+| iMessage | Apple端末かどうか | 95% |
+| WhatsApp | 登録有無 + デバイス情報 | 80% |
+| Telegram | 登録有無 | 70% |
+| LINE | 登録有無 | 70% |
+
+### デバイス判定ロジック
+
+1. iMessage有効 → **iPhone確定**
+2. iMessage無効 + WhatsApp(Android) → **Android確定**
+3. iMessage無効 + WhatsApp(不明) → **Android(推定)**
