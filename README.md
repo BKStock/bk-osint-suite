@@ -239,3 +239,90 @@ Built for educational purposes only.
 | xvideos             | xvideos.com                            | register          | ✘               |
 | yahoo               | yahoo.com                              | login             | ✔               |
 | zoho                | zoho.com                               | login             | ✔               |
+
+---
+
+# BK OSINT Suite — 拡張版
+
+オリジナルの [holehe](https://github.com/megadose/holehe) をフォークし、以下のカテゴリのモジュールを追加しました。
+
+## 追加カテゴリ
+
+### 🪙 暗号資産取引所 (Crypto Exchanges)
+| サービス | ドメイン |
+|---------|---------|
+| Binance | binance.com |
+| Bybit | bybit.com |
+| OKX | okx.com |
+| Bitget | bitget.com |
+| MEXC | mexc.com |
+| KuCoin | kucoin.com |
+| Gate.io | gate.io |
+| bitFlyer | bitflyer.com |
+
+### 🎰 オンラインカジノ (Online Casinos)
+
+**日本市場:**
+| サービス | ドメイン |
+|---------|---------|
+| ベラジョン (Vera&John) | vera-john.com |
+| カジ旅 (Casitabi) | casitabi.com |
+| ミスティーノ (Mystino) | mystino.com |
+| 遊雅堂 (Yuugado) | yuugado.com |
+| ボンズカジノ (Bons) | bons.com |
+| カジノシークレット | casinosecret.com |
+| インターカジノ | intercasino.com |
+| コニベット | konibet.com |
+
+**海外:**
+| サービス | ドメイン |
+|---------|---------|
+| Stake | stake.com |
+| BC.Game | bc.game |
+| Roobet | roobet.com |
+| Cloudbet | cloudbet.com |
+| BitStarz | bitstarz.com |
+| Bet365 | bet365.com |
+| 1xBet | 1xbet.com |
+
+### 💳 決済サービス (Payment Services)
+| サービス | ドメイン |
+|---------|---------|
+| PayPay | paypay.ne.jp |
+| LINE Pay | pay.line.me |
+| メルペイ | merpay.com |
+| 楽天ペイ | pay.rakuten.co.jp |
+| au PAY | aupay.wallet.auone.jp |
+| Wise | wise.com |
+| Revolut | revolut.com |
+
+## 使い方
+
+```bash
+# インストール
+git clone https://github.com/your-repo/bk-osint-suite.git
+cd bk-osint-suite
+pip install .
+
+# 実行
+holehe target@example.com
+
+# 使用済みサイトのみ表示
+holehe --only-used target@example.com
+
+# CSV出力
+holehe -C target@example.com
+```
+
+## オリジナルとの違い
+
+- **30+ 新モジュール追加**: 暗号資産取引所、オンラインカジノ、日本の決済サービス
+- **日本市場特化**: 日本で人気のサービスをカバー
+- **2段階チェック**: 登録チェック → パスワードリセットの順で確認
+- **レート制限対応**: 各サービスのレート制限を考慮
+
+## ⚠️ 注意事項
+
+- このツールはOSINT（公開情報調査）目的でのみ使用してください
+- 一部のモジュールはパスワードリセットメールを送信する可能性があります
+- 悪用は法律で禁止されています
